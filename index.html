@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUSA LEGAL CONSULTORIA | Propiedad Intelectual & Bebidas con Denominación de Origen</title>
+    <meta name="description" content="Protegemos tus ideas, impulsamos tus proyectos. Asesoría jurídica especializada en Propiedad Intelectual y proyectos de Bebidas Alcohólicas (Tequila, Mezcal, Raicilla, Bacanora, Sotol).">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo-lusa-color.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Cinzel"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            olive: '#676127',
+                            'olive-dark': '#484317',
+                            'olive-light': '#7F7833',
+                            sand: '#CFC4B1',
+                            'sand-bg': '#F7F5F0',
+                            'sand-card': '#EDE7DC',
+                            dark: '#141414',
+                            'dark-card': '#1E1E1E',
+                            muted: '#525252',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-white text-stone-900 antialiased selection:bg-brand-olive selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="bg-brand-dark text-white text-xs py-2.5 px-4 border-b border-stone-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span class="font-medium text-stone-200">Consultoría Jurídica Especializada | Cobertura Nacional e Internacional</span>
+            </div>
+            <div class="flex items-center gap-5 text-stone-300">
+                <a href="tel:3332585875" class="hover:text-white font-semibold transition flex items-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5 text-brand-sand"></i>
+                    <span>+52 33 3258 5875</span>
+                </a>
+                <span class="text-stone-600">|</span>
+                <a href="#contacto" class="hover:text-white font-semibold transition flex items-center gap-1.5">
+                    <i data-lucide="calendar" class="w-3.5 h-3.5 text-brand-sand"></i>
+                    <span>Agendar Cita</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <!-- Brand Logo Oficial a Color Directo (Mayor Tamaño) -->
+            <a href="#" class="flex items-center group py-2">
+                <img src="logo-lusa-color.png" alt="LUSA LEGAL CONSULTORIA" class="h-14 sm:h-16 lg:h-20 w-auto object-contain transition duration-300 group-hover:scale-105">
+            </a>
+
+            <!-- Desktop Nav Links (High Contrast) -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-stone-700">
+                <a href="#servicios" class="hover:text-brand-olive transition">Servicios</a>
+                <a href="#denominaciones" class="hover:text-brand-olive transition">Bebidas & D.O.</a>
+                <a href="#diferenciales" class="hover:text-brand-olive transition">Por qué LUSA</a>
+                <a href="#proceso" class="hover:text-brand-olive transition">Metodología</a>
+                <a href="#faq" class="hover:text-brand-olive transition">Preguntas</a>
+            </nav>
+
+            <!-- CTA Actions -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/523332585875?text=Hola%20LUSA%20LEGAL,%20deseo%20solicitar%20informaci%C3%B3n%20y%20asesor%C3%ADa%20jur%C3%ADdica." target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg border-2 border-stone-300 hover:border-brand-olive text-stone-800 hover:text-brand-olive text-xs font-bold tracking-wide uppercase transition duration-200 flex items-center gap-2">
+                    <i data-lucide="message-circle" class="w-4 h-4 text-emerald-600"></i>
+                    WhatsApp
+                </a>
+                <a href="#contacto" class="px-5 py-2.5 rounded-lg bg-brand-olive hover:bg-brand-olive-dark text-white text-xs font-bold tracking-wider uppercase shadow-md transition duration-200">
+                    Solicitar Asesoría
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-stone-800 hover:text-brand-olive" aria-label="Abrir menú">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-stone-200 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#servicios" class="block text-base font-bold text-stone-800 hover:text-brand-olive">Servicios</a>
+            <a href="#denominaciones" class="block text-base font-bold text-stone-800 hover:text-brand-olive">Bebidas & Denominaciones</a>
+            <a href="#diferenciales" class="block text-base font-bold text-stone-800 hover:text-brand-olive">Por qué LUSA Legal</a>
+            <a href="#proceso" class="block text-base font-bold text-stone-800 hover:text-brand-olive">Metodología</a>
+            <a href="#faq" class="block text-base font-bold text-stone-800 hover:text-brand-olive">Preguntas Frecuentes</a>
+            <div class="pt-4 border-t border-stone-200 flex flex-col gap-3">
+                <a href="https://wa.me/523332585875?text=Hola%20LUSA%20LEGAL,%20deseo%20solicitar%20asesor%C3%ADa." target="_blank" class="w-full text-center py-3 rounded-lg border-2 border-stone-300 font-bold text-stone-800">
+                    Enviar WhatsApp (+52 33 3258 5875)
+                </a>
+                <a href="#contacto" class="w-full text-center py-3 rounded-lg bg-brand-olive text-white font-bold">
+                    Agendar Cita / Cotización
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative bg-brand-sand-bg py-16 md:py-24 border-b border-stone-200 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-stone-200/80 border border-stone-300 text-stone-800 text-xs font-bold uppercase tracking-widest mb-6">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-brand-olive"></i>
+                    Despacho Jurídico Especializado
+                </div>
+
+                <!-- Headline -->
+                <h1 class="font-serif text-3.5xl sm:text-5xl lg:text-5.5xl font-bold tracking-tight text-stone-950 leading-tight mb-6">
+                    Protegemos tus ideas, <br>
+                    <span class="text-brand-olive">impulsamos tus proyectos.</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-base sm:text-lg md:text-xl text-stone-700 font-medium leading-relaxed max-w-2xl mx-auto mb-10">
+                    Asesoría jurídica integral en <strong class="text-stone-950 font-bold">Propiedad Intelectual</strong> y acompañamiento estratégico para el desarrollo, regularización y comercialización de <strong class="text-stone-950 font-bold">Bebidas Alcohólicas con Denominación de Origen</strong>.
+                </p>
+
+                <!-- Hero Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                    <a href="#contacto" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-olive hover:bg-brand-olive-dark text-white font-bold text-sm uppercase tracking-wider shadow-lg shadow-stone-400/50 transition duration-200 flex items-center justify-center gap-2">
+                        <i data-lucide="file-signature" class="w-4 h-4"></i>
+                        Solicitar Asesoría & Cotización
+                    </a>
+                    <a href="https://wa.me/523332585875?text=Hola%20LUSA%20LEGAL,%20me%20gustar%C3%ADa%20agendar%20una%20cita%20o%20conocer%20m%C3%A1s%20de%20sus%20servicios." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-stone-50 border-2 border-stone-300 text-stone-900 font-bold text-sm uppercase tracking-wider shadow-sm transition duration-200 flex items-center justify-center gap-2">
+                        <i data-lucide="message-square" class="w-4 h-4 text-emerald-600"></i>
+                        Contactar por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Protected DO Badges -->
+                <div class="pt-8 border-t border-stone-300">
+                    <p class="text-xs uppercase tracking-widest text-stone-600 mb-4 font-bold">Especialistas en Productos con Denominación de Origen:</p>
+                    <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-bold text-stone-800">
+                        <span class="px-4 py-2 rounded-lg bg-white border border-stone-300 shadow-sm">🥃 Tequila</span>
+                        <span class="px-4 py-2 rounded-lg bg-white border border-stone-300 shadow-sm">🌵 Mezcal</span>
+                        <span class="px-4 py-2 rounded-lg bg-white border border-stone-300 shadow-sm">🌿 Raicilla</span>
+                        <span class="px-4 py-2 rounded-lg bg-white border border-stone-300 shadow-sm">🪵 Bacanora</span>
+                        <span class="px-4 py-2 rounded-lg bg-white border border-stone-300 shadow-sm">🏜️ Sotol</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAL & VALOR -->
+    <section id="diferenciales" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-olive">Nuestra Ventaja Competitiva</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2 mb-4">
+                    Más que un registro: Visión Jurídica, Regulatoria y Comercial
+                </h2>
+                <p class="text-stone-600 text-base leading-relaxed">
+                    No nos limitamos al simple trámite administrativo. Diseñamos blindajes estratégicos integrales para que productores, comercializadores y titulares de marcas protejan su inversión y escalen sin contingencias legales.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-brand-sand-bg p-8 rounded-2xl border border-stone-200 hover:border-brand-olive transition duration-300 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-brand-olive text-white flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="shield" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Protección y Prevención</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed font-normal">
+                        Blindamos tus activos intangibles (marcas, patentes, derechos de autor y secretos industriales), previniendo infracciones, litigios costosos y riesgos de nulidad antes de salir al mercado.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-sand-bg p-8 rounded-2xl border border-stone-200 hover:border-brand-olive transition duration-300 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-brand-olive text-white flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="scale" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Acompañamiento Integral</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed font-normal">
+                        Coordinamos trámites ante las autoridades competentes (IMPI, COFEPRIS, Consejos Reguladores, SAT) y formalizamos acuerdos comerciales, contratos de maquila y licencias operativas.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-sand-bg p-8 rounded-2xl border border-stone-200 hover:border-brand-olive transition duration-300 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-brand-olive text-white flex items-center justify-center mb-6 shadow-md">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-stone-900 mb-3">Especialización de Industria</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed font-normal">
+                        Experiencia específica en proyectos de bebidas espirituosas y destilados mexicanos, facilitando la regularización, certificación de origen y cumplimiento de normas de exportación.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICIOS PRINCIPALES -->
+    <section id="servicios" class="py-24 bg-brand-sand-bg border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-olive">Áreas de Práctica</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2">
+                        Soluciones Jurídicas a la Medida de tu Proyecto
+                    </h2>
+                </div>
+                <div>
+                    <a href="#contacto" class="inline-flex items-center gap-2 text-sm text-brand-olive hover:text-brand-olive-dark font-bold transition">
+                        Solicitar cotización personalizada <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Servicio 1 -->
+                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive transition duration-300 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">01. Propiedad Intelectual</span>
+                            <i data-lucide="award" class="w-6 h-6 text-brand-olive"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Registro y Protección de Signos Distintivos</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            Garantizamos la exclusividad de tus activos intangibles en México y en el extranjero, asegurando tu posición en el mercado.
+                        </p>
+                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Búsqueda fonética y análisis de viabilidad de marcas</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Registro de marcas, nombres y avisos comerciales (IMPI)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Protección de Derechos de Autor y Secretos Industriales</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Contratos de cesión, licencias de uso y franquicias</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition">
+                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive transition duration-300 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">02. Bebidas & Destilados</span>
+                            <i data-lucide="wine" class="w-6 h-6 text-brand-olive"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Acompañamiento Regulatorio en Bebidas Alcohólicas</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            Especialización estratégica en productos bajo Denominaciones de Origen (Tequila, Mezcal, Raicilla, Bacanora, Sotol).
+                        </p>
+                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Acreditaciones y vinculación con Consejos Reguladores (CRT, CRM, etc.)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Cumplimiento de Normas Oficiales Mexicanas (NOMs) y etiquetado</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Contratos de producción, maquila, envasado y distribución</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Estrategia legal para exportación y regularización comercial</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition">
+                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive transition duration-300 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">03. Gestión Regulatoria</span>
+                            <i data-lucide="clipboard-check" class="w-6 h-6 text-brand-olive"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Trámites Administrativos, Fiscales y Sanitarios</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            Gestión preventiva y ejecutiva ante autoridades para mantener tus operaciones en regla y libres de suspensiones o multas.
+                        </p>
+                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Gestoría sanitaria y trámites ante COFEPRIS</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Avisos de funcionamiento, licencias y autorizaciones</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Cumplimiento normativo ambiental y fiscal sectorial</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Defensa administrativa y resolución de requerimientos</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition">
+                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive transition duration-300 flex flex-col justify-between shadow-sm">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">04. Blindaje Corporativo</span>
+                            <i data-lucide="briefcase" class="w-6 h-6 text-brand-olive"></i>
+                        </div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Contratos y Estructuración Legal de Negocios</h3>
+                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
+                            Formalización de relaciones comerciales para emprendedores, socios, inversionistas y distribuidores a nivel global.
+                        </p>
+                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Convenios de confidencialidad (NDA) y no competencia</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Contratos de suministro, distribución nacional e internacional</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Convenios entre socios y gobernanza para proyectos en crecimiento</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
+                                <span>Auditoría legal preventiva de activos y contingencias</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition">
+                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESPECIALIDAD DENOMINACIONES DE ORIGEN -->
+    <section id="denominaciones" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6">
+                    <span class="text-xs font-extrabold uppercase tracking-widest text-brand-olive">Especialidad de la Casa</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2 mb-6">
+                        Desarrollo y Regularización de Bebidas con Denominación de Origen
+                    </h2>
+                    <p class="text-stone-700 text-base leading-relaxed mb-6 font-normal">
+                        La industria de bebidas espirituosas mexicanas exige un rigor regulatorio y técnico único. Ya sea que estés lanzando una marca boutique o escalando exportaciones a gran escala, te brindamos la certeza legal que tu inversión requiere.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="p-4 rounded-xl bg-brand-sand-bg border border-stone-200 flex items-start gap-3.5">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-olive shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-stone-950 text-sm">Tequila & Mezcal</h4>
+                                <p class="text-stone-600 text-xs mt-1 leading-relaxed">Convenios de corresponsabilidad, trámites ante CRT / CRM, autorizaciones de marbete y cumplimiento de NOM-006 y NOM-070.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-brand-sand-bg border border-stone-200 flex items-start gap-3.5">
+                            <i data-lucide="check" class="w-5 h-5 text-brand-olive shrink-0 mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-stone-950 text-sm">Raicilla, Bacanora & Sotol</h4>
+                                <p class="text-stone-600 text-xs mt-1 leading-relaxed">Formalización de proyectos emergentes y tradicionales bajo sus respectivas denominaciones y normas técnicas específicas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/523332585875?text=Hola%20LUSA%20LEGAL,%20tengo%20un%20proyecto%20de%20bebidas%20alcoh%C3%B3licas%20y%20requiero%20asesor%C3%ADa." target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-olive hover:bg-brand-olive-dark text-white font-bold text-xs uppercase tracking-wider transition shadow-md">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        Consultar mi Proyecto de Bebidas
+                    </a>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="rounded-2xl bg-brand-sand-bg border border-stone-300 p-8 sm:p-10 shadow-lg">
+                        <h3 class="font-serif text-xl font-bold text-stone-950 mb-6 flex items-center gap-3">
+                            <i data-lucide="compass" class="w-6 h-6 text-brand-olive"></i>
+                            ¿A quién acompañamos?
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-stone-200 shadow-sm">
+                                <span class="w-8 h-8 rounded-full bg-brand-olive text-white flex items-center justify-center font-bold text-xs">01</span>
+                                <div>
+                                    <p class="text-sm font-bold text-stone-950">Productores y Maestros Destiladores</p>
+                                    <p class="text-xs text-stone-600">Regularización de plantas y blindaje de procesos</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-stone-200 shadow-sm">
+                                <span class="w-8 h-8 rounded-full bg-brand-olive text-white flex items-center justify-center font-bold text-xs">02</span>
+                                <div>
+                                    <p class="text-sm font-bold text-stone-950">Comercializadores y Nuevas Marcas</p>
+                                    <p class="text-xs text-stone-600">Desarrollo de marcas propias con contratos de maquila seguros</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-stone-200 shadow-sm">
+                                <span class="w-8 h-8 rounded-full bg-brand-olive text-white flex items-center justify-center font-bold text-xs">03</span>
+                                <div>
+                                    <p class="text-sm font-bold text-stone-950">Importadores y Exportadores</p>
+                                    <p class="text-xs text-stone-600">Cumplimiento transfronterizo y registro internacional</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-white border border-stone-200 shadow-sm">
+                                <span class="w-8 h-8 rounded-full bg-brand-olive text-white flex items-center justify-center font-bold text-xs">04</span>
+                                <div>
+                                    <p class="text-sm font-bold text-stone-950">Emprendedores y Titulares Creativos</p>
+                                    <p class="text-xs text-stone-600">Protección integral de signos distintivos y derechos de autor</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- METODOLOGÍA / CÓMO TRABAJAMOS -->
+    <section id="proceso" class="py-20 bg-brand-sand-bg border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-olive">Transparencia y Eficiencia</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2 mb-4">
+                    Nuestro Proceso de Trabajo
+                </h2>
+                <p class="text-stone-600 text-base font-normal">
+                    Un camino claro, estructurado y sin sorpresas desde el primer contacto hasta el éxito de tu proyecto.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Paso 1 -->
+                <div class="p-6 rounded-xl bg-white border border-stone-200 shadow-sm relative">
+                    <span class="font-serif text-4xl font-bold text-stone-200 absolute top-4 right-4">01</span>
+                    <div class="w-10 h-10 rounded-lg bg-stone-100 text-brand-olive flex items-center justify-center mb-4 font-bold">
+                        <i data-lucide="search" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-950 text-base mb-2">Diagnóstico Inicial</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Analizamos tu marca, proyecto o situación jurídica para identificar riesgos y viabilidad antes de cualquier trámite.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="p-6 rounded-xl bg-white border border-stone-200 shadow-sm relative">
+                    <span class="font-serif text-4xl font-bold text-stone-200 absolute top-4 right-4">02</span>
+                    <div class="w-10 h-10 rounded-lg bg-stone-100 text-brand-olive flex items-center justify-center mb-4 font-bold">
+                        <i data-lucide="calculator" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-950 text-base mb-2">Cotización Clara</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Propuesta a la medida según el alcance y complejidad. Derechos oficiales y honorarios desglosados con total transparencia.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="p-6 rounded-xl bg-white border border-stone-200 shadow-sm relative">
+                    <span class="font-serif text-4xl font-bold text-stone-200 absolute top-4 right-4">03</span>
+                    <div class="w-10 h-10 rounded-lg bg-stone-100 text-brand-olive flex items-center justify-center mb-4 font-bold">
+                        <i data-lucide="layers" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-950 text-base mb-2">Ejecución & Gestión</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Elaboración de documentos legales y coordinación directa ante autoridades competentes con reportes periódicos.
+                    </p>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="p-6 rounded-xl bg-white border border-stone-200 shadow-sm relative">
+                    <span class="font-serif text-4xl font-bold text-stone-200 absolute top-4 right-4">04</span>
+                    <div class="w-10 h-10 rounded-lg bg-stone-100 text-brand-olive flex items-center justify-center mb-4 font-bold">
+                        <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-950 text-base mb-2">Protección Continua</h3>
+                    <p class="text-stone-600 text-xs leading-relaxed">
+                        Acompañamiento legal constante para renovaciones, contratos comerciales y escalamiento de tu modelo de negocio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES (FAQ) -->
+    <section id="faq" class="py-20 bg-white border-b border-stone-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-14">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-brand-olive">Claridad y Certeza</span>
+                <h2 class="font-serif text-3xl font-bold text-stone-950 mt-2">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4">
+                <details class="group bg-brand-sand-bg border border-stone-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer text-stone-950 font-bold text-base">
+                        <span>¿Cómo se determinan los honorarios y cotizaciones?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-olive transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-sm text-stone-700 leading-relaxed border-t border-stone-200 pt-4 font-normal">
+                        Nuestros honorarios se cotizan de forma personalizada con base en el tipo de servicio, el alcance del proyecto, el número de trámites o productos y su complejidad. Los derechos oficiales, impuestos, certificaciones y aranceles gubernamentales se desglosan por separado para total claridad.
+                    </p>
+                </details>
+
+                <details class="group bg-brand-sand-bg border border-stone-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer text-stone-950 font-bold text-base">
+                        <span>¿Atienden asuntos fuera de su ciudad o a nivel internacional?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-olive transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-sm text-stone-700 leading-relaxed border-t border-stone-200 pt-4 font-normal">
+                        Sí, contamos con cobertura en toda la República Mexicana y acompañamos proyectos de exportación y registros internacionales de marcas a través de protocolos internacionales y aliados estratégicos en el extranjero.
+                    </p>
+                </details>
+
+                <details class="group bg-brand-sand-bg border border-stone-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer text-stone-950 font-bold text-base">
+                        <span>¿Qué necesito para registrar mi marca de Tequila o Mezcal?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-olive transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-sm text-stone-700 leading-relaxed border-t border-stone-200 pt-4 font-normal">
+                        Además del registro de marca ante el IMPI, se requiere tramitar la vinculación ante el Consejo Regulador correspondiente (CRT o CRM), formalizar el convenio de corresponsabilidad con el productor autorizado, y cumplir con los requisitos de etiquetado y sanidad aplicables. En LUSA LEGAL te guiamos en cada uno de estos pasos.
+                    </p>
+                </details>
+
+                <details class="group bg-brand-sand-bg border border-stone-200 rounded-xl p-5 [&_summary::-webkit-details-marker]:hidden shadow-sm">
+                    <summary class="flex items-center justify-between cursor-pointer text-stone-950 font-bold text-base">
+                        <span>¿Qué pasa si mi solicitud de marca ya tiene un impedimento o rechazo previo?</span>
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-brand-olive transition-transform group-open:rotate-180"></i>
+                    </summary>
+                    <p class="mt-4 text-sm text-stone-700 leading-relaxed border-t border-stone-200 pt-4 font-normal">
+                        Realizamos un estudio exhaustivo del oficio emitido por la autoridad para determinar la viabilidad de contestar el impedimento legal mediante argumentos jurídicos sólidos o reestructurar la estrategia de protección de tu marca.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMULARIO & CONTACTO -->
+    <section id="contacto" class="py-24 bg-brand-sand-bg relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Info Column -->
+                <div class="lg:col-span-5 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-olive">Contacto Directo</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-stone-950 mt-2 mb-6">
+                            Iniciemos la Protección de tu Proyecto
+                        </h2>
+                        <p class="text-stone-700 text-base leading-relaxed mb-8">
+                            Agenda una cita, solicita una cotización o platícanos los detalles de tu emprendimiento o empresa. Te responderemos con prontitud y confidencialidad.
+                        </p>
+
+                        <div class="space-y-4 mb-8">
+                            <a href="https://wa.me/523332585875" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-white border border-stone-200 hover:border-brand-olive transition shadow-sm">
+                                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200">
+                                    <i data-lucide="message-circle" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-500 uppercase font-bold">Atención por WhatsApp</p>
+                                    <p class="text-base font-bold text-stone-900">+52 33 3258 5875</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-white border border-stone-200 shadow-sm">
+                                <div class="w-12 h-12 rounded-xl bg-stone-100 text-brand-olive flex items-center justify-center shrink-0 border border-stone-200">
+                                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-500 uppercase font-bold">Cobertura de Servicios</p>
+                                    <p class="text-base font-bold text-stone-900">Nacional e Internacional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trust statement -->
+                    <div class="p-4 rounded-xl bg-white border border-stone-200 text-xs text-stone-600 flex items-center gap-3 shadow-sm">
+                        <i data-lucide="lock" class="w-5 h-5 text-brand-olive shrink-0"></i>
+                        <span>Tratamiento de información bajo estricto deber de confidencialidad y secreto profesional.</span>
+                    </div>
+                </div>
+
+                <!-- Form Column -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 sm:p-10 rounded-2xl border border-stone-300 shadow-xl">
+                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-2">Solicitar Información o Cotización</h3>
+                        <p class="text-stone-600 text-xs mb-6">Completa los campos y te contactaremos por WhatsApp o correo según tu preferencia.</p>
+
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Nombre completo *</label>
+                                    <input type="text" id="form-name" required placeholder="Ej. Carlos Mendoza" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Teléfono / WhatsApp *</label>
+                                    <input type="tel" id="form-phone" required placeholder="Ej. 33 1234 5678" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Correo electrónico</label>
+                                    <input type="email" id="form-email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Área de Interés *</label>
+                                    <select id="form-service" required class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition">
+                                        <option value="Propiedad Intelectual / Marcas">Propiedad Intelectual / Registro de Marca</option>
+                                        <option value="Bebidas Alcohólicas & Denominaciones de Origen">Bebidas & Denominaciones de Origen (Tequila, Mezcal, etc.)</option>
+                                        <option value="Gestión Regulatoria / COFEPRIS">Gestión Regulatoria / COFEPRIS / Normatividad</option>
+                                        <option value="Contratos y Blindaje Corporativo">Contratos y Blindaje Corporativo</option>
+                                        <option value="Otro / Asesoría General">Otro / Asesoría General</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Describe brevemente tu proyecto o necesidad *</label>
+                                <textarea id="form-message" rows="4" required placeholder="Cuéntanos sobre tu marca o producto, en qué etapa se encuentra y qué requieres..." class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition"></textarea>
+                            </div>
+
+                            <div class="flex items-start gap-2 pt-2">
+                                <input type="checkbox" id="form-privacy" required class="mt-1 rounded border-stone-300 text-brand-olive focus:ring-brand-olive">
+                                <label for="form-privacy" class="text-xs text-stone-600 leading-normal">
+                                    Acepto que LUSA LEGAL use mis datos de contacto para dar seguimiento a mi solicitud de asesoría.
+                                </label>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-brand-olive hover:bg-brand-olive-dark text-white font-bold text-sm uppercase tracking-wider shadow-lg transition duration-200 flex items-center justify-center gap-2 mt-4">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                Enviar y Abrir por WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER PREMIUM -->
+    <footer class="bg-brand-dark text-stone-300 pt-16 pb-24 sm:pb-20 border-t-2 border-brand-olive/40 relative overflow-hidden">
+        <!-- Detalle de fondo sutil -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-olive/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Grid Principal 4 Columnas -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12 border-b border-stone-800">
+                
+                <!-- Columna 1: Marca & Lema (5 cols) -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="inline-block bg-white rounded-xl p-2.5 shadow-sm">
+                        <img src="logo-lusa-color.png" alt="LUSA LEGAL CONSULTORIA" class="h-12 w-auto object-contain">
+                    </div>
+                    <p class="text-xs sm:text-sm text-stone-400 font-normal leading-relaxed max-w-sm">
+                        Despacho jurídico especializado en <strong class="text-stone-200">Propiedad Intelectual</strong> y regulación estratégica de <strong class="text-stone-200">Bebidas Alcohólicas con Denominación de Origen</strong>.
+                    </p>
+                    <div class="pt-1">
+                        <p class="text-xs text-brand-sand font-serif italic tracking-wide">"Protegemos tus ideas, impulsamos tus proyectos."</p>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Navegación Rápida (2 cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-sand border-b border-stone-800 pb-2">Secciones</h4>
+                    <ul class="space-y-2 text-xs font-medium text-stone-400">
+                        <li><a href="#servicios" class="hover:text-white transition flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-olive"></i>Servicios</a></li>
+                        <li><a href="#denominaciones" class="hover:text-white transition flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-olive"></i>Bebidas & D.O.</a></li>
+                        <li><a href="#diferenciales" class="hover:text-white transition flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-olive"></i>Por qué LUSA</a></li>
+                        <li><a href="#proceso" class="hover:text-white transition flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-olive"></i>Metodología</a></li>
+                        <li><a href="#faq" class="hover:text-white transition flex items-center gap-1.5"><i data-lucide="chevron-right" class="w-3.5 h-3.5 text-brand-olive"></i>Preguntas</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Denominaciones (2 cols) -->
+                <div class="lg:col-span-2 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-sand border-b border-stone-800 pb-2">Especialidades</h4>
+                    <ul class="space-y-2 text-xs font-medium text-stone-400">
+                        <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-olive"></span>Tequila & Mezcal</li>
+                        <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-olive"></span>Raicilla</li>
+                        <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-olive"></span>Bacanora & Sotol</li>
+                        <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-olive"></span>Registro de Marcas</li>
+                        <li class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-brand-olive"></span>Trámites COFEPRIS</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto Directo (3 cols) -->
+                <div class="lg:col-span-3 space-y-3">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-brand-sand border-b border-stone-800 pb-2">Atención & Citas</h4>
+                    <div class="space-y-2.5 text-xs text-stone-400">
+                        <a href="https://wa.me/523332585875" target="_blank" class="flex items-center gap-2.5 p-2 rounded-lg bg-stone-900 border border-stone-800 hover:border-brand-olive transition text-stone-200">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-emerald-400 shrink-0"></i>
+                            <span>WhatsApp: +52 33 3258 5875</span>
+                        </a>
+                        <div class="flex items-center gap-2.5 px-2 py-1 text-stone-400">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-brand-sand shrink-0"></i>
+                            <span>Cobertura Nacional e Internacional</span>
+                        </div>
+                        <a href="#contacto" class="inline-block w-full text-center py-2 px-3 rounded-lg bg-brand-olive hover:bg-brand-olive-dark text-white font-bold tracking-wide uppercase transition shadow-sm text-[11px]">
+                            Agendar Asesoría
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Bar Legal & Copyright (Con separación para evitar superposición con el botón flotante) -->
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-500 pr-0 md:pr-48">
+                <p class="order-2 md:order-1">&copy; 2026 LUSA LEGAL CONSULTORIA. Todos los derechos reservados.</p>
+                
+                <div class="flex items-center gap-6 text-stone-400 font-medium order-1 md:order-2">
+                    <a href="javascript:void(0)" onclick="openPrivacyModal()" class="hover:text-brand-sand transition underline-offset-4 hover:underline">Aviso de Privacidad</a>
+                    <span>•</span>
+                    <a href="javascript:void(0)" onclick="openTermsModal()" class="hover:text-brand-sand transition underline-offset-4 hover:underline">Términos y Condiciones</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <aside class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/523332585875?text=Hola%20LUSA%20LEGAL,%20deseo%20solicitar%20asesor%C3%ADa%20jur%C3%ADdica%20personalizada." target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs py-3.5 px-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-105" aria-label="Contactar por WhatsApp">
+            <i data-lucide="message-circle" class="w-5 h-5 text-white"></i>
+            <span class="hidden sm:inline-block pr-1 font-semibold tracking-wide">¿Asesoría Legal? Escríbenos</span>
+        </a>
+    </aside>
+
+    <!-- MODAL AVISO DE PRIVACIDAD -->
+    <div id="privacy-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white max-w-xl w-full rounded-2xl p-6 relative max-h-[85vh] overflow-y-auto shadow-2xl">
+            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-stone-500 hover:text-stone-900 p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 class="font-serif text-xl font-bold text-stone-950 mb-4">Aviso de Privacidad</h3>
+            <div class="text-stone-700 text-xs space-y-3 leading-relaxed">
+                <p><strong>LUSA LEGAL CONSULTORIA</strong>, con cobertura nacional e internacional, es responsable del tratamiento y protección de sus datos personales.</p>
+                <p>La información recabada a través de nuestros formularios y canales de mensajería (nombre, teléfono, correo electrónico y detalles del asunto) se utilizará exclusivamente para fines de contacto, diagnóstico legal preliminar y envío de cotizaciones de servicios jurídicos solicitados.</p>
+                <p>Sus datos no serán transferidos a terceros sin su consentimiento expreso, salvo las excepciones previstas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+            </div>
+            <div class="mt-6 text-right">
+                <button onclick="closePrivacyModal()" class="px-5 py-2 rounded-lg bg-brand-olive text-white font-bold text-xs">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL TÉRMINOS Y CONDICIONES -->
+    <div id="terms-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white max-w-xl w-full rounded-2xl p-6 relative max-h-[85vh] overflow-y-auto shadow-2xl">
+            <button onclick="closeTermsModal()" class="absolute top-4 right-4 text-stone-500 hover:text-stone-900 p-2">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 class="font-serif text-xl font-bold text-stone-950 mb-4">Términos y Condiciones</h3>
+            <div class="text-stone-700 text-xs space-y-3 leading-relaxed">
+                <p>El contenido informativo de este sitio web tiene carácter orientativo y no constituye formalmente una relación abogado-cliente hasta la firma del contrato de prestación de servicios jurídicos respectivo.</p>
+                <p>Las cotizaciones están sujetas al análisis de antecedentes y viabilidad del caso. Los derechos oficiales, tasas gubernamentales y aranceles se calcularán con base en las tarifas vigentes emitidas por las autoridades correspondientes (IMPI, SAT, etc.).</p>
+            </div>
+            <div class="mt-6 text-right">
+                <button onclick="closeTermsModal()" class="px-5 py-2 rounded-lg bg-brand-olive text-white font-bold text-xs">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Init Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+        }
+
+        // Contact Form Submission to WhatsApp
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('form-name').value;
+                const phone = document.getElementById('form-phone').value;
+                const email = document.getElementById('form-email').value || 'No especificado';
+                const service = document.getElementById('form-service').value;
+                const message = document.getElementById('form-message').value;
+
+                const text = `*SOLICITUD DE ASESORÍA - LUSA LEGAL*%0A%0A` +
+                    `*Nombre:* ${encodeURIComponent(name)}%0A` +
+                    `*Teléfono:* ${encodeURIComponent(phone)}%0A` +
+                    `*Correo:* ${encodeURIComponent(email)}%0A` +
+                    `*Área de Interés:* ${encodeURIComponent(service)}%0A` +
+                    `*Mensaje / Proyecto:* ${encodeURIComponent(message)}`;
+
+                const whatsappUrl = `https://wa.me/523332585875?text=${text}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+
+        // Modals Logic
+        function openPrivacyModal() {
+            document.getElementById('privacy-modal').classList.remove('hidden');
+            document.getElementById('privacy-modal').classList.add('flex');
+        }
+        function closePrivacyModal() {
+            document.getElementById('privacy-modal').classList.add('hidden');
+            document.getElementById('privacy-modal').classList.remove('flex');
+        }
+        function openTermsModal() {
+            document.getElementById('terms-modal').classList.remove('hidden');
+            document.getElementById('terms-modal').classList.add('flex');
+        }
+        function closeTermsModal() {
+            document.getElementById('terms-modal').classList.add('hidden');
+            document.getElementById('terms-modal').classList.remove('flex');
+        }
+    </script>
+</body>
+</html>
