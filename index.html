@@ -92,15 +92,34 @@
             backdrop-filter: blur(16px);
         }
 
-        /* Badge pulse ring */
-        .pulse-ring {
-            box-shadow: 0 0 0 0 rgba(103, 97, 39, 0.4);
-            animation: pulse-ring 2.5s infinite;
+        /* Flip Card 3D Effect */
+        .flip-card {
+            perspective: 1200px;
         }
-        @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(103, 97, 39, 0.4); }
-            70% { box-shadow: 0 0 0 12px rgba(103, 97, 39, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(103, 97, 39, 0); }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: left;
+            transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+            transform-style: preserve-3d;
+        }
+        .flip-card.is-flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 1rem;
+        }
+        .flip-card-back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateY(180deg);
         }
     </style>
 </head>
@@ -439,144 +458,276 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Servicio 1 -->
-                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive interactive-card transition duration-300 flex flex-col justify-between shadow-sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">01. Propiedad Intelectual</span>
-                            <i data-lucide="award" class="w-6 h-6 text-brand-olive"></i>
+                <!-- Servicio 1: Propiedad Intelectual -->
+                <div class="flip-card min-h-[380px] sm:min-h-[360px]" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100">
+                    <div class="flip-card-inner h-full" id="card-inner-1">
+                        <!-- FRENTE DE LA TARJETA -->
+                        <div class="flip-card-front bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive shadow-sm flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">01. Propiedad Intelectual</span>
+                                    <i data-lucide="award" class="w-6 h-6 text-brand-olive"></i>
+                                </div>
+                                <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Registro y Protección de Signos Distintivos</h3>
+                                <p class="text-stone-600 text-sm leading-relaxed mb-6 font-normal">
+                                    Garantizamos la exclusividad de tus activos intangibles en México y en el extranjero, asegurando tu posición en el mercado frente a competidores e infracciones.
+                                </p>
+                            </div>
+                            
+                            <!-- Botón para girar al reverso -->
+                            <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                                <button type="button" onclick="toggleCardFlip(1)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-sand-bg hover:bg-brand-olive hover:text-white text-stone-900 text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group">
+                                    <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-brand-olive group-hover:text-white group-hover:rotate-180 transition-transform"></i>
+                                    <span>Toca para ver desglose completo</span>
+                                </button>
+                                <span class="text-[11px] font-bold text-stone-400 hidden sm:inline">Girar tarjeta ↺</span>
+                            </div>
                         </div>
-                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Registro y Protección de Signos Distintivos</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                            Garantizamos la exclusividad de tus activos intangibles en México y en el extranjero, asegurando tu posición en el mercado.
-                        </p>
-                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Búsqueda fonética y análisis de viabilidad de marcas</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Registro de marcas, nombres y avisos comerciales (IMPI)</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Protección de Derechos de Autor y Secretos Industriales</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Contratos de cesión, licencias de uso y franquicias</span>
-                            </li>
-                        </ul>
+
+                        <!-- REVERSO DE LA TARJETA (INFO COMPLETA) -->
+                        <div class="flip-card-back bg-brand-dark text-stone-200 border-2 border-brand-olive rounded-2xl p-8 shadow-2xl flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded bg-brand-olive text-white uppercase tracking-wider">Alcance & Procedimientos</span>
+                                    <button type="button" onclick="toggleCardFlip(1)" class="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white transition" title="Volver">
+                                        <i data-lucide="x" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-white mb-4">01. Propiedad Intelectual</h4>
+                                <ul class="space-y-2.5 text-xs text-stone-300 font-medium">
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Búsqueda fonética exhaustiva y análisis de viabilidad previa.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Registro de marcas, avisos y nombres comerciales ante el IMPI.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Protección de Derechos de Autor, software y Secretos Industriales.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Contratos de cesión de derechos, licencias de uso y franquicias.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-4 border-t border-stone-800 flex items-center justify-between gap-3">
+                                <button type="button" onclick="toggleCardFlip(1)" class="text-xs text-stone-400 hover:text-white flex items-center gap-1.5 transition">
+                                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver
+                                </button>
+                                <a href="#contacto" class="px-4 py-2 rounded-lg bg-brand-olive hover:bg-brand-olive-light text-white text-xs font-bold uppercase tracking-wider transition">
+                                    Cotizar este servicio
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition group">
-                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
                 </div>
 
-                <!-- Servicio 2 -->
-                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive interactive-card transition duration-300 flex flex-col justify-between shadow-sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">02. Bebidas & Destilados</span>
-                            <i data-lucide="wine" class="w-6 h-6 text-brand-olive"></i>
+                <!-- Servicio 2: Bebidas & Destilados -->
+                <div class="flip-card min-h-[380px] sm:min-h-[360px]" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
+                    <div class="flip-card-inner h-full" id="card-inner-2">
+                        <!-- FRENTE DE LA TARJETA -->
+                        <div class="flip-card-front bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive shadow-sm flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">02. Bebidas & Destilados</span>
+                                    <i data-lucide="wine" class="w-6 h-6 text-brand-olive"></i>
+                                </div>
+                                <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Acompañamiento Regulatorio en Bebidas Alcohólicas</h3>
+                                <p class="text-stone-600 text-sm leading-relaxed mb-6 font-normal">
+                                    Especialización estratégica en proyectos y marcas bajo Denominaciones de Origen (Tequila, Mezcal, Raicilla, Bacanora, Sotol).
+                                </p>
+                            </div>
+                            
+                            <!-- Botón para girar al reverso -->
+                            <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                                <button type="button" onclick="toggleCardFlip(2)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-sand-bg hover:bg-brand-olive hover:text-white text-stone-900 text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group">
+                                    <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-brand-olive group-hover:text-white group-hover:rotate-180 transition-transform"></i>
+                                    <span>Toca para ver desglose completo</span>
+                                </button>
+                                <span class="text-[11px] font-bold text-stone-400 hidden sm:inline">Girar tarjeta ↺</span>
+                            </div>
                         </div>
-                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Acompañamiento Regulatorio en Bebidas Alcohólicas</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                            Especialización estratégica en productos bajo Denominaciones de Origen (Tequila, Mezcal, Raicilla, Bacanora, Sotol).
-                        </p>
-                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Acreditaciones y vinculación con Consejos Reguladores (CRT, CRM, etc.)</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Cumplimiento de Normas Oficiales Mexicanas (NOMs) y etiquetado</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Contratos de producción, maquila, envasado y distribución</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Estrategia legal para exportación y regularización comercial</span>
-                            </li>
-                        </ul>
+
+                        <!-- REVERSO DE LA TARJETA (INFO COMPLETA) -->
+                        <div class="flip-card-back bg-brand-dark text-stone-200 border-2 border-brand-olive rounded-2xl p-8 shadow-2xl flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded bg-brand-olive text-white uppercase tracking-wider">Alcance & Procedimientos</span>
+                                    <button type="button" onclick="toggleCardFlip(2)" class="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white transition" title="Volver">
+                                        <i data-lucide="x" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-white mb-4">02. Bebidas & Destilados</h4>
+                                <ul class="space-y-2.5 text-xs text-stone-300 font-medium">
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Acreditaciones y vinculación con Consejos Reguladores (CRT, CRM, etc.).</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Cumplimiento de Normas Oficiales Mexicanas (NOMs) y diseño de etiquetas.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Contratos de producción, maquila, envasado y convenios de corresponsabilidad.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Estrategia jurídica para comercialización nacional y exportación internacional.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-4 border-t border-stone-800 flex items-center justify-between gap-3">
+                                <button type="button" onclick="toggleCardFlip(2)" class="text-xs text-stone-400 hover:text-white flex items-center gap-1.5 transition">
+                                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver
+                                </button>
+                                <a href="#contacto" class="px-4 py-2 rounded-lg bg-brand-olive hover:bg-brand-olive-light text-white text-xs font-bold uppercase tracking-wider transition">
+                                    Cotizar este servicio
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition group">
-                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
                 </div>
 
-                <!-- Servicio 3 -->
-                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive interactive-card transition duration-300 flex flex-col justify-between shadow-sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">03. Gestión Regulatoria</span>
-                            <i data-lucide="clipboard-check" class="w-6 h-6 text-brand-olive"></i>
+                <!-- Servicio 3: Gestión Regulatoria -->
+                <div class="flip-card min-h-[380px] sm:min-h-[360px]" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300">
+                    <div class="flip-card-inner h-full" id="card-inner-3">
+                        <!-- FRENTE DE LA TARJETA -->
+                        <div class="flip-card-front bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive shadow-sm flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">03. Gestión Regulatoria</span>
+                                    <i data-lucide="clipboard-check" class="w-6 h-6 text-brand-olive"></i>
+                                </div>
+                                <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Trámites Administrativos, Fiscales y Sanitarios</h3>
+                                <p class="text-stone-600 text-sm leading-relaxed mb-6 font-normal">
+                                    Gestión preventiva y ejecutiva ante autoridades para mantener tus operaciones en regla y libres de suspensiones o multas operativas.
+                                </p>
+                            </div>
+                            
+                            <!-- Botón para girar al reverso -->
+                            <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                                <button type="button" onclick="toggleCardFlip(3)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-sand-bg hover:bg-brand-olive hover:text-white text-stone-900 text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group">
+                                    <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-brand-olive group-hover:text-white group-hover:rotate-180 transition-transform"></i>
+                                    <span>Toca para ver desglose completo</span>
+                                </button>
+                                <span class="text-[11px] font-bold text-stone-400 hidden sm:inline">Girar tarjeta ↺</span>
+                            </div>
                         </div>
-                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Trámites Administrativos, Fiscales y Sanitarios</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                            Gestión preventiva y ejecutiva ante autoridades para mantener tus operaciones en regla y libres de suspensiones o multas.
-                        </p>
-                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Gestoría sanitaria y trámites ante COFEPRIS</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Avisos de funcionamiento, licencias y autorizaciones</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Cumplimiento normativo ambiental y fiscal sectorial</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Defensa administrativa y resolución de requerimientos</span>
-                            </li>
-                        </ul>
+
+                        <!-- REVERSO DE LA TARJETA (INFO COMPLETA) -->
+                        <div class="flip-card-back bg-brand-dark text-stone-200 border-2 border-brand-olive rounded-2xl p-8 shadow-2xl flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded bg-brand-olive text-white uppercase tracking-wider">Alcance & Procedimientos</span>
+                                    <button type="button" onclick="toggleCardFlip(3)" class="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white transition" title="Volver">
+                                        <i data-lucide="x" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-white mb-4">03. Gestión Regulatoria</h4>
+                                <ul class="space-y-2.5 text-xs text-stone-300 font-medium">
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Gestoría sanitaria y autorizaciones ante COFEPRIS.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Avisos de funcionamiento, licencias comerciales y padrones sectoriales.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Cumplimiento normativo ambiental, sanitario y fiscal.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Defensa jurídica administrativa y desahogo de requerimientos.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-4 border-t border-stone-800 flex items-center justify-between gap-3">
+                                <button type="button" onclick="toggleCardFlip(3)" class="text-xs text-stone-400 hover:text-white flex items-center gap-1.5 transition">
+                                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver
+                                </button>
+                                <a href="#contacto" class="px-4 py-2 rounded-lg bg-brand-olive hover:bg-brand-olive-light text-white text-xs font-bold uppercase tracking-wider transition">
+                                    Cotizar este servicio
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition group">
-                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
                 </div>
 
-                <!-- Servicio 4 -->
-                <div class="bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive interactive-card transition duration-300 flex flex-col justify-between shadow-sm" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
-                    <div>
-                        <div class="flex items-center justify-between mb-6">
-                            <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">04. Blindaje Corporativo</span>
-                            <i data-lucide="briefcase" class="w-6 h-6 text-brand-olive"></i>
+                <!-- Servicio 4: Blindaje Corporativo -->
+                <div class="flip-card min-h-[380px] sm:min-h-[360px]" data-aos="fade-up" data-aos-duration="600" data-aos-delay="400">
+                    <div class="flip-card-inner h-full" id="card-inner-4">
+                        <!-- FRENTE DE LA TARJETA -->
+                        <div class="flip-card-front bg-white border border-stone-200 rounded-2xl p-8 hover:border-brand-olive shadow-sm flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-6">
+                                    <span class="text-xs font-bold px-3 py-1 rounded bg-stone-100 text-stone-800 border border-stone-300 uppercase tracking-wide">04. Blindaje Corporativo</span>
+                                    <i data-lucide="briefcase" class="w-6 h-6 text-brand-olive"></i>
+                                </div>
+                                <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Contratos y Estructuración Legal de Negocios</h3>
+                                <p class="text-stone-600 text-sm leading-relaxed mb-6 font-normal">
+                                    Formalización de relaciones comerciales para emprendedores, socios, inversionistas y distribuidores a nivel global.
+                                </p>
+                            </div>
+                            
+                            <!-- Botón para girar al reverso -->
+                            <div class="pt-4 border-t border-stone-100 flex items-center justify-between">
+                                <button type="button" onclick="toggleCardFlip(4)" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-sand-bg hover:bg-brand-olive hover:text-white text-stone-900 text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm group">
+                                    <i data-lucide="rotate-cw" class="w-3.5 h-3.5 text-brand-olive group-hover:text-white group-hover:rotate-180 transition-transform"></i>
+                                    <span>Toca para ver desglose completo</span>
+                                </button>
+                                <span class="text-[11px] font-bold text-stone-400 hidden sm:inline">Girar tarjeta ↺</span>
+                            </div>
                         </div>
-                        <h3 class="font-serif text-2xl font-bold text-stone-950 mb-3">Contratos y Estructuración Legal de Negocios</h3>
-                        <p class="text-stone-600 text-sm leading-relaxed mb-6">
-                            Formalización de relaciones comerciales para emprendedores, socios, inversionistas y distribuidores a nivel global.
-                        </p>
-                        <ul class="space-y-3 text-sm text-stone-800 font-medium mb-8">
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Convenios de confidencialidad (NDA) y no competencia</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Contratos de suministro, distribución nacional e internacional</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Convenios entre socios y gobernanza para proyectos en crecimiento</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-olive shrink-0"></i>
-                                <span>Auditoría legal preventiva de activos y contingencias</span>
-                            </li>
-                        </ul>
+
+                        <!-- REVERSO DE LA TARJETA (INFO COMPLETA) -->
+                        <div class="flip-card-back bg-brand-dark text-stone-200 border-2 border-brand-olive rounded-2xl p-8 shadow-2xl flex flex-col justify-between h-full">
+                            <div>
+                                <div class="flex items-center justify-between mb-4">
+                                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded bg-brand-olive text-white uppercase tracking-wider">Alcance & Procedimientos</span>
+                                    <button type="button" onclick="toggleCardFlip(4)" class="p-1.5 rounded-lg bg-stone-800 hover:bg-stone-700 text-stone-300 hover:text-white transition" title="Volver">
+                                        <i data-lucide="x" class="w-4 h-4"></i>
+                                    </button>
+                                </div>
+                                <h4 class="font-serif text-lg font-bold text-white mb-4">04. Blindaje Corporativo</h4>
+                                <ul class="space-y-2.5 text-xs text-stone-300 font-medium">
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Convenios de confidencialidad (NDA) y pactos de no competencia.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Contratos de suministro y redes de distribución nacional e internacional.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Convenios de accionistas y gobernanza corporativa para proyectos en expansión.</span>
+                                    </li>
+                                    <li class="flex items-start gap-2.5">
+                                        <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-sand shrink-0 mt-0.5"></i>
+                                        <span>Auditoría legal (Due Diligence) de contingencias y activos comerciales.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="pt-4 border-t border-stone-800 flex items-center justify-between gap-3">
+                                <button type="button" onclick="toggleCardFlip(4)" class="text-xs text-stone-400 hover:text-white flex items-center gap-1.5 transition">
+                                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Volver
+                                </button>
+                                <a href="#contacto" class="px-4 py-2 rounded-lg bg-brand-olive hover:bg-brand-olive-light text-white text-xs font-bold uppercase tracking-wider transition">
+                                    Cotizar este servicio
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#contacto" class="text-xs uppercase font-bold text-brand-olive hover:text-stone-950 flex items-center gap-1.5 transition group">
-                        Consultar sobre esta área <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -1050,6 +1201,17 @@
                 const whatsappUrl = `https://wa.me/523332585875?text=${text}`;
                 window.open(whatsappUrl, '_blank');
             });
+        }
+
+        // Flip Card Logic
+        function toggleCardFlip(cardIndex) {
+            const cardInner = document.getElementById(`card-inner-${cardIndex}`);
+            if (cardInner) {
+                const flipCard = cardInner.closest('.flip-card');
+                if (flipCard) {
+                    flipCard.classList.toggle('is-flipped');
+                }
+            }
         }
 
         // Modals Logic
