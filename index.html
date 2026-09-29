@@ -1168,19 +1168,251 @@
     </aside>
 
     <!-- MODAL AVISO DE PRIVACIDAD -->
-    <div id="privacy-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-white max-w-xl w-full rounded-2xl p-6 relative max-h-[85vh] overflow-y-auto shadow-2xl animate-fade-in">
-            <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-stone-500 hover:text-stone-900 p-2">
+    <div id="privacy-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white max-w-3xl w-full rounded-2xl p-6 sm:p-8 relative max-h-[88vh] overflow-y-auto shadow-2xl animate-fade-in border border-stone-200">
+            <button onclick="closePrivacyModal()" class="sticky top-0 float-right text-stone-500 hover:text-stone-950 p-2 rounded-lg bg-stone-100/90 hover:bg-stone-200 transition mb-2" aria-label="Cerrar modal">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
-            <h3 class="font-serif text-xl font-bold text-stone-950 mb-4">Aviso de Privacidad</h3>
-            <div class="text-stone-700 text-xs space-y-3 leading-relaxed">
-                <p><strong>LUSA LEGAL CONSULTORIA</strong>, con cobertura nacional e internacional, es responsable del tratamiento y protección de sus datos personales.</p>
-                <p>La información recabada a través de nuestros formularios y canales de mensajería (nombre, teléfono, correo electrónico y detalles del asunto) se utilizará exclusivamente para fines de contacto, diagnóstico legal preliminar y envío de cotizaciones de servicios jurídicos solicitados.</p>
-                <p>Sus datos no serán transferidos a terceros sin su consentimiento expreso, salvo las excepciones previstas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares.</p>
+            <div class="clear-both">
+                <span class="text-[11px] font-extrabold uppercase tracking-widest text-brand-olive block mb-1">Documento Legal Oficial</span>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-stone-950 mb-1">AVISO DE PRIVACIDAD INTEGRAL</h3>
+                <p class="text-xs font-semibold text-stone-500 mb-6">Fecha de última actualización: 14 de septiembre de 2026</p>
+                
+                <div class="text-stone-700 text-xs sm:text-sm space-y-4 leading-relaxed font-normal">
+                    <p>
+                        En <strong>LUSA LEGAL CONSULTORIA</strong>, en lo sucesivo <strong>“LUSA”</strong>, reconocemos la importancia de la protección de sus datos personales y estamos comprometidos con su privacidad, confidencialidad y adecuado tratamiento.
+                    </p>
+                    <p>
+                        El presente Aviso de Privacidad tiene por objeto informarle sobre los datos personales que podemos recabar, las finalidades para las cuales serán utilizados, así como los medios disponibles para ejercer sus derechos, de conformidad con la legislación aplicable en materia de protección de datos personales.
+                    </p>
+                    <p>
+                        El SITIO WEB está dirigido a personas mayores de edad y con capacidad legal suficiente para obligarse conforme a los presentes Términos y Condiciones. El TITULAR no será responsable por el acceso o uso del SITIO WEB por personas que no cumplan con este requisito.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">1. RESPONSABLE DEL TRATAMIENTO DE SUS DATOS PERSONALES</h4>
+                    <p>
+                        El responsable del tratamiento de sus datos personales es LUSA con domicilio en Calle Pegaso No. 250, Col. Las Fuentes, Zapopan, Jalisco, C.p. 45079.
+                    </p>
+                    <p>
+                        Para cualquier asunto relacionado con el tratamiento de sus datos personales, incluyendo el ejercicio de sus Derechos ARCO, podrá comunicarse al:
+                    </p>
+                    <p class="bg-stone-50 p-3 rounded-lg border border-stone-200">
+                        <strong>Correo electrónico:</strong> <a href="mailto:ablucerogutierrez@outlook.com" class="text-brand-olive hover:underline font-semibold">ablucerogutierrez@outlook.com</a>
+                    </p>
+                    <p>
+                        Asimismo, LUSA podrá recibir comunicaciones a través de teléfono, correo electrónico y WhatsApp, mediante los datos de contacto que se encuentren disponibles en nuestro sitio web.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">2. DATOS PERSONALES QUE RECABAMOS</h4>
+                    <p>A través de nuestro sitio web y de los distintos medios de contacto que ponemos a su disposición, podremos recabar los siguientes datos personales:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Nombre.</li>
+                        <li>Correo electrónico.</li>
+                        <li>Número telefónico.</li>
+                        <li>Área de interés.</li>
+                        <li>Descripción del proyecto, asunto o consulta.</li>
+                        <li>Cualquier otra información que usted proporcione voluntariamente relacionada con su solicitud.</li>
+                    </ul>
+                    <p>
+                        LUSA procurará recabar únicamente aquellos datos que sean necesarios, adecuados y relevantes para las finalidades descritas en el presente Aviso.
+                    </p>
+                    <p>
+                        LUSA no recaba de manera ordinaria datos personales sensibles a través de su sitio web. En caso de que por la naturaleza de un servicio sea necesario tratar este tipo de información, se observarán las disposiciones legales aplicables y se solicitarán los consentimientos que correspondan.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">3. ¿CÓMO OBTENEMOS SUS DATOS?</h4>
+                    <p>Sus datos personales podrán ser recabados cuando usted:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>a) Complete alguno de los formularios disponibles en nuestro sitio web;</li>
+                        <li>b) Solicite información sobre nuestros servicios;</li>
+                        <li>c) Se comunique con LUSA mediante correo electrónico, teléfono o WhatsApp;</li>
+                        <li>d) Solicite una reunión, propuesta o cotización; o</li>
+                        <li>e) Proporcione voluntariamente información durante alguna comunicación con nosotros.</li>
+                    </ul>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">4. FINALIDADES DEL TRATAMIENTO</h4>
+                    <p>Sus datos personales serán utilizados para las siguientes:</p>
+                    
+                    <p class="font-bold text-stone-900 mt-2">Finalidades primarias</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Atender y dar seguimiento a sus solicitudes de información.</li>
+                        <li>Contactarlo respecto del proyecto, asunto o consulta que haya planteado.</li>
+                        <li>Identificar el área de servicios de su interés.</li>
+                        <li>Conocer de manera general las características de su proyecto o asunto.</li>
+                        <li>Evaluar las necesidades relacionadas con los servicios profesionales de LUSA.</li>
+                        <li>Elaborar propuestas, cotizaciones o presentaciones de servicios.</li>
+                        <li>En su caso, establecer y mantener una relación profesional o contractual.</li>
+                        <li>Prestar, administrar y dar seguimiento a los servicios contratados.</li>
+                        <li>Elaborar y gestionar documentos relacionados con los servicios solicitados.</li>
+                        <li>Cumplir con obligaciones legales, contractuales y administrativas.</li>
+                    </ul>
+
+                    <p class="font-bold text-stone-900 mt-2">Finalidades secundarias</p>
+                    <p>Adicionalmente, sus datos podrán utilizarse para:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Enviarle información sobre servicios de LUSA.</li>
+                        <li>Compartir publicaciones, contenidos, eventos, seminarios o información de interés jurídico y empresarial.</li>
+                        <li>Enviar comunicaciones institucionales.</li>
+                        <li>Realizar actividades de prospección comercial relacionadas con nuestros servicios.</li>
+                    </ul>
+                    <p>
+                        Si usted no desea que sus datos sean utilizados para las finalidades secundarias, podrá manifestarlo enviando una solicitud al correo <a href="mailto:ab.lucerogutierrez@outlook.com" class="text-brand-olive hover:underline font-semibold">ab.lucerogutierrez@outlook.com</a>. La negativa para estas finalidades no afectará la prestación de los servicios que, en su caso, haya contratado con LUSA.
+                    </p>
+                    <p>
+                        De conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares y demás disposiciones aplicables, el TITULAR adoptará medidas administrativas, técnicas y físicas razonables para proteger los datos personales que, en su caso, sean tratados a través del SITIO WEB, procurando evitar su pérdida, alteración, destrucción, uso, acceso o tratamiento no autorizado.
+                    </p>
+                    <p>
+                        Todo tratamiento de datos personales se realizará conforme a los principios de licitud, finalidad, lealtad, consentimiento, calidad, proporcionalidad, información y responsabilidad. En caso de que se traten datos financieros, patrimoniales o sensibles, el TITULAR observará las medidas y autorizaciones que correspondan conforme a la legislación aplicable y al Aviso de Privacidad vigente.
+                    </p>
+                    <p>
+                        En todo momento se procurará que los datos personales contenidos en las bases de datos o archivos que, en su caso, se utilicen sean pertinentes, correctos y actualizados para los fines para los cuales fueron recabados.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">5. INFORMACIÓN DEL PROYECTO O CONSULTA</h4>
+                    <p>
+                        La información que usted proporcione en el apartado de “Descripción del proyecto” podrá ser utilizada para comprender la naturaleza de su consulta, identificar sus necesidades y determinar los servicios que LUSA pudiera ofrecerle.
+                    </p>
+                    <p>
+                        Le recomendamos no proporcionar, a través del formulario inicial, información personal sensible, información confidencial de terceros o documentación que no resulte necesaria para la atención de su solicitud.
+                    </p>
+                    <p>
+                        En caso de requerirse información adicional para la prestación de un servicio profesional, LUSA podrá solicitarla posteriormente mediante los canales correspondientes.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">6. TRANSFERENCIA DE DATOS PERSONALES</h4>
+                    <p>
+                        LUSA podrá transferir o comunicar sus datos personales cuando ello sea necesario para cumplir con las finalidades señaladas en este Aviso, para la prestación de los servicios solicitados o cuando exista una obligación legal.
+                    </p>
+                    <p>En su caso, los datos podrán ser compartidos con:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Autoridades competentes, cuando exista obligación o requerimiento legal.</li>
+                        <li>Profesionistas, consultores, peritos o especialistas que participen en la atención de un asunto.</li>
+                        <li>Proveedores de servicios necesarios para la operación y prestación de nuestros servicios.</li>
+                        <li>Terceros cuya participación resulte necesaria para cumplir con los servicios solicitados.</li>
+                    </ul>
+                    <p>
+                        Cuando legalmente sea necesario obtener su consentimiento para realizar alguna transferencia, éste será solicitado en los términos correspondientes.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">7. WHATSAPP Y MEDIOS ELECTRÓNICOS</h4>
+                    <p>
+                        LUSA podrá utilizar WhatsApp, correo y otros medios electrónicos para comunicarse con usted y dar seguimiento a sus solicitudes o servicios.
+                    </p>
+                    <p>
+                        Al utilizar WhatsApp, usted reconoce que dicha plataforma es operada por un tercero y que su utilización se encuentra sujeta a los términos y políticas de privacidad de dicha plataforma.
+                    </p>
+                    <p>
+                        LUSA tratará la información que reciba a través de estos medios conforme al presente Aviso de Privacidad y a la legislación aplicable.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">8. COOKIES Y TECNOLOGÍAS DE RASTREO</h4>
+                    <p>
+                        Nuestro sitio web podrá utilizar cookies y tecnologías similares para permitir su correcto funcionamiento, mejorar la experiencia de navegación, conocer estadísticas de uso y, en su caso, mejorar nuestros servicios.
+                    </p>
+                    <p>
+                        La información que pudiera obtenerse mediante estas tecnologías podrá incluir datos técnicos relacionados con su navegación, como tipo de dispositivo, navegador, fecha y hora de acceso, páginas consultadas y tiempo de navegación.
+                    </p>
+                    <p>
+                        Usted puede configurar su navegador para bloquear o eliminar cookies; sin embargo, algunas funcionalidades del sitio podrían verse afectadas.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">9. DERECHOS ARCO</h4>
+                    <p>Usted tiene derecho a:</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li><strong>Acceder</strong> a sus datos personales y conocer el tratamiento que se les da;</li>
+                        <li><strong>Rectificarlos</strong> cuando sean inexactos, incompletos o estén desactualizados;</li>
+                        <li><strong>Cancelarlos</strong> cuando considere que no están siendo tratados conforme a la legislación aplicable; y</li>
+                        <li><strong>Oponerse</strong> a su tratamiento para determinadas finalidades.</li>
+                    </ul>
+                    <p>
+                        Para ejercer cualquiera de los Derechos ARCO, deberá presentar su solicitud al correo: <a href="mailto:ab.lucerogutierrez@outlook.com" class="text-brand-olive hover:underline font-semibold">ab.lucerogutierrez@outlook.com</a>
+                    </p>
+                    <p>
+                        La solicitud deberá incluir su nombre, el derecho que desea ejercer, una descripción clara de los datos personales relacionados con su solicitud y, cuando corresponda, los documentos necesarios para acreditar su identidad o representación.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">10. REVOCACIÓN DEL CONSENTIMIENTO</h4>
+                    <p>
+                        Cuando el tratamiento de sus datos se encuentre sujeto a su consentimiento, usted podrá revocarlo mediante una solicitud enviada a <a href="mailto:ab.lucerogutierrez@outlook.com" class="text-brand-olive hover:underline font-semibold">ab.lucerogutierrez@outlook.com</a>
+                    </p>
+                    <p>
+                        La revocación podrá estar sujeta a las limitaciones previstas por la legislación aplicable y no necesariamente implicará la eliminación inmediata de información que LUSA deba conservar por obligaciones legales, contractuales o para el ejercicio o defensa de derechos.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">11. LIMITACIÓN DEL USO Y DIVULGACIÓN</h4>
+                    <p>
+                        Usted podrá solicitar la limitación del uso o divulgación de sus datos personales, particularmente respecto de las finalidades secundarias, mediante solicitud enviada a <a href="mailto:ab.lucerogutierrez@outlook.com" class="text-brand-olive hover:underline font-semibold">ab.lucerogutierrez@outlook.com</a>
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">12. MEDIDAS DE SEGURIDAD</h4>
+                    <p>
+                        LUSA implementa medidas administrativas, técnicas y físicas razonables para proteger sus datos personales contra daño, pérdida, alteración, destrucción, acceso o tratamiento no autorizado.
+                    </p>
+                    <p>
+                        Asimismo, LUSA procurará que las personas que intervengan en el tratamiento de sus datos personales mantengan la debida confidencialidad respecto de dicha información.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">13. CONSERVACIÓN DE LOS DATOS</h4>
+                    <p>
+                        Los datos personales serán conservados durante el tiempo necesario para cumplir con las finalidades previstas en este Aviso y, en su caso, durante los plazos establecidos por las disposiciones legales, contractuales o administrativas aplicables.
+                    </p>
+                    <p>
+                        Una vez cumplidas las finalidades correspondientes y cuando no exista obligación legal de conservarlos, LUSA procederá a su eliminación o bloqueo conforme a sus procedimientos internos y a la legislación aplicable.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">14. CAMBIOS AL AVISO DE PRIVACIDAD</h4>
+                    <p>
+                        LUSA podrá modificar o actualizar el presente Aviso de Privacidad cuando resulte necesario por cambios en sus servicios, prácticas de tratamiento de datos personales, requerimientos legales o cualquier otra circunstancia.
+                    </p>
+                    <p>
+                        Las modificaciones serán publicadas en el sitio web de LUSA, dentro de la sección correspondiente al Aviso de Privacidad, indicando la fecha de su última actualización.
+                    </p>
+
+                    <hr class="border-stone-200 my-4">
+
+                    <h4 class="font-bold text-stone-950 text-sm sm:text-base uppercase tracking-wider text-brand-olive pt-2">15. CONTACTO</h4>
+                    <div class="bg-stone-50 p-4 rounded-xl border border-stone-200 space-y-1.5">
+                        <p class="font-bold text-stone-950">LUSA LEGAL CONSULTORIA</p>
+                        <p><strong>Domicilio:</strong> Calle Pegaso No. 250, Col. Las Fuentes, Zapopan, Jalisco, C.p. 45079</p>
+                        <p><strong>Correo para Derechos ARCO:</strong> <a href="mailto:ab.lucerogutierrez@outlook.com" class="text-brand-olive hover:underline font-semibold">ab.lucerogutierrez@outlook.com</a></p>
+                        <p><strong>Teléfono / WhatsApp:</strong> +52 33 3258 5875</p>
+                        <p><strong>Sitio web:</strong> <a href="https://lusa-legal.vercel.app" target="_blank" class="text-brand-olive hover:underline font-semibold">https://lusa-legal.vercel.app</a></p>
+                    </div>
+                    <p class="text-xs text-stone-500 italic pt-2">
+                        Al proporcionar sus datos personales a través de nuestro sitio web o cualquiera de los medios de contacto habilitados por LUSA, usted reconoce haber leído el presente Aviso de Privacidad y, cuando legalmente resulte necesario, otorga su consentimiento para el tratamiento de sus datos personales conforme a sus términos.
+                    </p>
+                </div>
             </div>
-            <div class="mt-6 text-right">
-                <button onclick="closePrivacyModal()" class="px-5 py-2 rounded-lg bg-brand-olive text-white font-bold text-xs">Cerrar</button>
+            <div class="mt-8 pt-4 border-t border-stone-200 flex justify-end">
+                <button onclick="closePrivacyModal()" class="px-6 py-2.5 rounded-xl bg-brand-olive hover:bg-brand-olive-dark text-white font-bold text-xs uppercase tracking-wider shadow transition">Entendido y Cerrar</button>
             </div>
         </div>
     </div>
