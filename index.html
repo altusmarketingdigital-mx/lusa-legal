@@ -1032,12 +1032,12 @@
                         <!-- Mensaje de Estado / Éxito -->
                         <div id="form-status" class="hidden mb-4 p-4 rounded-xl text-xs font-semibold"></div>
 
-                        <form id="contact-form" action="https://formsubmit.co/atencion@lusalegal.com" method="POST" class="space-y-4">
-                            <!-- Configuraciones FormSubmit -->
-                            <input type="hidden" name="_subject" value="Nueva Solicitud de Asesoría - LUSA LEGAL">
-                            <input type="hidden" name="_template" value="table">
-                            <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://lusa-legal.vercel.app/#contacto">
+                        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                            <!-- Configuraciones Web3Forms -->
+                            <input type="hidden" name="access_key" value="51016c91-4e7a-4b1a-8d1f-93a503d15720">
+                            <input type="hidden" name="subject" value="Nueva Solicitud de Asesoría - LUSA LEGAL">
+                            <input type="hidden" name="from_name" value="LUSA Legal Web">
+                            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
@@ -1490,25 +1490,27 @@
                 btnText.textContent = 'Enviando solicitud...';
 
                 try {
-                    const response = await fetch('https://formsubmit.co/ajax/atencion@lusalegal.com', {
+                    const response = await fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'Accept': 'application/json'
                         },
                         body: JSON.stringify({
+                            access_key: '51016c91-4e7a-4b1a-8d1f-93a503d15720',
+                            subject: `Nueva Solicitud Web LUSA LEGAL: ${name} - ${service}`,
+                            from_name: 'LUSA Legal Website',
                             'Nombre Completo': name,
                             'Teléfono / WhatsApp': phone,
                             'Correo Electrónico': email,
                             'Área de Interés': service,
-                            'Mensaje / Descripción': message,
-                            '_subject': `Nueva Solicitud Web LUSA LEGAL: ${name} - ${service}`,
-                            '_template': 'table',
-                            '_captcha': 'false'
+                            'Mensaje / Descripción': message
                         })
                     });
 
-                    if (response.ok) {
+                    const result = await response.json();
+
+                    if (response.status === 200 && result.success) {
                         formStatus.className = 'mb-4 p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-xs leading-relaxed block animate-fade-in';
                         formStatus.innerHTML = `
                             <div class="flex items-center gap-2 font-bold mb-1 text-emerald-800 text-sm">
@@ -1518,12 +1520,16 @@
                         `;
                         contactForm.reset();
                     } else {
-                        throw new Error('Error al procesar el envío');
+                        throw new Error(result.message || 'Error al procesar el envío');
                     }
                 } catch (error) {
-                    // Si el endpoint AJAX requiere activación inicial, enviamos vía POST estándar para forzar el correo de activación
-                    contactForm.submit();
-                    return;
+                    formStatus.className = 'mb-4 p-4 rounded-xl bg-red-50 border border-red-300 text-red-900 text-xs leading-relaxed block animate-fade-in';
+                    formStatus.innerHTML = `
+                        <div class="flex items-center gap-2 font-bold mb-1 text-red-800 text-sm">
+                            <span>⚠</span> Hubo un inconveniente al enviar tu solicitud
+                        </div>
+                        <p class="text-red-700">${error.message || 'Por favor intenta nuevamente o contáctanos directamente a <a href="mailto:atencion@lusalegal.com" class="underline font-bold">atencion@lusalegal.com</a> o por WhatsApp.'}</p>
+                    `;
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
