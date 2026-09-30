@@ -1032,26 +1032,32 @@
                         <!-- Mensaje de Estado / Éxito -->
                         <div id="form-status" class="hidden mb-4 p-4 rounded-xl text-xs font-semibold"></div>
 
-                        <form id="contact-form" class="space-y-4">
+                        <form id="contact-form" action="https://formsubmit.co/atencion@lusalegal.com" method="POST" class="space-y-4">
+                            <!-- Configuraciones FormSubmit -->
+                            <input type="hidden" name="_subject" value="Nueva Solicitud de Asesoría - LUSA LEGAL">
+                            <input type="hidden" name="_template" value="table">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://lusa-legal.vercel.app/#contacto">
+
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Nombre completo *</label>
-                                    <input type="text" id="form-name" required placeholder="Ej. Carlos Mendoza" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner">
+                                    <input type="text" name="Nombre" id="form-name" required placeholder="Ej. Carlos Mendoza" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Teléfono / WhatsApp *</label>
-                                    <input type="tel" id="form-phone" required placeholder="Ej. 33 1234 5678" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner">
+                                    <input type="tel" name="Telefono" id="form-phone" required placeholder="Ej. 33 1234 5678" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Correo electrónico *</label>
-                                    <input type="email" id="form-email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner">
+                                    <input type="email" name="Email" id="form-email" required placeholder="correo@ejemplo.com" class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Área de Interés *</label>
-                                    <select id="form-service" required class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition">
+                                    <select name="Area_de_Interes" id="form-service" required class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition">
                                         <option value="Propiedad Intelectual / Marcas">Propiedad Intelectual / Registro de Marca</option>
                                         <option value="Bebidas Alcohólicas & Denominaciones de Origen">Bebidas & Denominaciones de Origen (Tequila, Mezcal, etc.)</option>
                                         <option value="Gestión Regulatoria / COFEPRIS">Gestión Regulatoria / COFEPRIS / Normatividad</option>
@@ -1063,7 +1069,7 @@
 
                             <div>
                                 <label class="block text-xs font-bold text-stone-800 uppercase tracking-wider mb-2">Describe brevemente tu proyecto o necesidad *</label>
-                                <textarea id="form-message" rows="4" required placeholder="Cuéntanos sobre tu marca o producto, en qué etapa se encuentra y qué requieres..." class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner"></textarea>
+                                <textarea name="Mensaje" id="form-message" rows="4" required placeholder="Cuéntanos sobre tu marca o producto, en qué etapa se encuentra y qué requieres..." class="w-full px-4 py-3 rounded-lg bg-stone-50 border border-stone-300 text-stone-900 placeholder-stone-400 focus:outline-none focus:border-brand-olive focus:bg-white text-sm transition shadow-inner"></textarea>
                             </div>
 
                             <div class="flex items-start gap-2 pt-2">
@@ -1515,11 +1521,9 @@
                         throw new Error('Error al procesar el envío');
                     }
                 } catch (error) {
-                    formStatus.className = 'mb-4 p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-xs leading-relaxed block';
-                    formStatus.innerHTML = `
-                        <div class="font-bold mb-1">Tu solicitud fue generada.</div>
-                        <p>Si deseas agilizar tu contacto, también puedes escribirnos directamente a <a href="mailto:atencion@lusalegal.com" class="underline font-bold text-brand-olive">atencion@lusalegal.com</a>.</p>
-                    `;
+                    // Si el endpoint AJAX requiere activación inicial, enviamos vía POST estándar para forzar el correo de activación
+                    contactForm.submit();
+                    return;
                 } finally {
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
