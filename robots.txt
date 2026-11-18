@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Permitir a Googlebot indexar favicon e imágenes
+Allow: /favicon*
+Allow: /apple-touch-icon*
+Allow: /*.png
+Allow: /*.ico
+
+Sitemap: https://www.lusalegal.com/sitemap.xml
